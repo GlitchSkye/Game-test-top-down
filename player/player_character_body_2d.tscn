@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://k3ev0lxxvrob"]
+[gd_scene load_steps=32 format=3 uid="uid://k3ev0lxxvrob"]
 
 [ext_resource type="Texture2D" uid="uid://b46wfhwhcy83t" path="res://player/Jump (32x32).png" id="1_3voty"]
 [ext_resource type="Script" path="res://program/Player/playercharacterbody2d.gd" id="1_ywxm0"]
 [ext_resource type="Texture2D" uid="uid://bl0pdnuv1wka0" path="res://player/Idle (32x32).png" id="2_fc578"]
 [ext_resource type="Texture2D" uid="uid://b661t2nywyep5" path="res://player/Run (32x32).png" id="3_u8lww"]
+[ext_resource type="PackedScene" uid="uid://dwhyh07kbxenr" path="res://sword.tscn" id="5_ktt4c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_diva8"]
 atlas = ExtResource("2_fc578")
@@ -217,5 +218,8 @@ shape = SubResource("CapsuleShape2D_v6eb2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 2)
+
+[node name="sword" parent="." instance=ExtResource("5_ktt4c")]
+position = Vector2(1, 11)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -38,14 +38,7 @@ func _physics_process(delta: float) -> void:
 	player.flip_h = isLeft
 	
 func _process(delta):
-
-	mouse_position = get_viewport().get_mouse_position()
-
-	var sword_global_position = sword.global_position
-
-	var direction = (mouse_position - sword_global_position).normalized()
-
-	sword.rotation = direction.angle()
+	pass
 	
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bee_collectable"):

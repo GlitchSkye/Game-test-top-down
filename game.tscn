@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://tbhenph4hprf"]
+[gd_scene load_steps=9 format=3 uid="uid://tbhenph4hprf"]
 
 [ext_resource type="Script" path="res://program/game.gd" id="1_6bosh"]
 [ext_resource type="Texture2D" uid="uid://4lfpw68mcxhq" path="res://Green.png" id="1_j0afo"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://program/game_manager.gd" id="5_fi5ip"]
 [ext_resource type="PackedScene" uid="uid://npmrsqs13vmw" path="res://box.tscn" id="6_iefp6"]
 [ext_resource type="PackedScene" uid="uid://nmjf7t8r1e2u" path="res://pause_menu.tscn" id="7_l2dwb"]
-[ext_resource type="PackedScene" uid="uid://dwhyh07kbxenr" path="res://sword.tscn" id="8_a2ai5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pcqrm"]
 
@@ -67,8 +66,3 @@ offset_left = 411.0
 offset_top = 275.0
 offset_right = 284.0
 offset_bottom = 160.0
-
-[node name="weapon" type="Node" parent="."]
-
-[node name="sword" parent="weapon" instance=ExtResource("8_a2ai5")]
-position = Vector2(624, 309)
