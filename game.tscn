@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://tbhenph4hprf"]
+
+[ext_resource type="Script" path="res://program/game.gd" id="1_6bosh"]
+[ext_resource type="Texture2D" uid="uid://4lfpw68mcxhq" path="res://Green.png" id="1_j0afo"]
+[ext_resource type="PackedScene" uid="uid://k3ev0lxxvrob" path="res://player/player_character_body_2d.tscn" id="2_gdw2g"]
+[ext_resource type="PackedScene" uid="uid://8euh2rgfiu7l" path="res://bumble_bee/bee_collectable.tscn" id="3_o1qwc"]
+[ext_resource type="Script" path="res://program/game_manager.gd" id="5_fi5ip"]
+[ext_resource type="PackedScene" uid="uid://npmrsqs13vmw" path="res://box.tscn" id="6_iefp6"]
+[ext_resource type="PackedScene" uid="uid://nmjf7t8r1e2u" path="res://pause_menu.tscn" id="7_l2dwb"]
+[ext_resource type="PackedScene" uid="uid://dwhyh07kbxenr" path="res://sword.tscn" id="8_a2ai5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pcqrm"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_6bosh")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_fi5ip")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_j0afo")
+stretch_mode = 1
+
+[node name="playerCharacterBody2d" parent="." instance=ExtResource("2_gdw2g")]
+position = Vector2(578, 326)
+collision_layer = 2
+collision_mask = 128
+
+[node name="bee_collectable" parent="." instance=ExtResource("3_o1qwc")]
+position = Vector2(81, 77)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="score" type="Panel" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -279.0
+offset_bottom = 85.0
+grow_horizontal = 0
+size_flags_vertical = 0
+
+[node name="points" type="Label" parent="CanvasLayer/score"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 8.0
+offset_right = 276.0
+offset_bottom = 78.0
+text = "Bees: 0"
+label_settings = SubResource("LabelSettings_pcqrm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="box" parent="." instance=ExtResource("6_iefp6")]
+collision_mask = 2
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_l2dwb")]
+visible = false
+offset_left = 411.0
+offset_top = 275.0
+offset_right = 284.0
+offset_bottom = 160.0
+
+[node name="weapon" type="Node" parent="."]
+
+[node name="sword" parent="weapon" instance=ExtResource("8_a2ai5")]
+position = Vector2(624, 309)

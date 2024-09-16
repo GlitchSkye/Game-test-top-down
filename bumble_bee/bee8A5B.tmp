@@ -1,0 +1,136 @@
+[gd_scene load_steps=20 format=3 uid="uid://8euh2rgfiu7l"]
+
+[ext_resource type="Texture2D" uid="uid://cwjr70r1hgba7" path="res://bumble_bee/Idle (36x34).png" id="1_q4jwj"]
+[ext_resource type="Script" path="res://program/bee_collectable.gd" id="1_wiq43"]
+[ext_resource type="Texture2D" uid="uid://djctnykamjln4" path="res://bumble_bee/Desappearing (96x96).png" id="2_bpscu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgqf4"]
+atlas = ExtResource("1_q4jwj")
+region = Rect2(0, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tvhw"]
+atlas = ExtResource("1_q4jwj")
+region = Rect2(36, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57ptn"]
+atlas = ExtResource("1_q4jwj")
+region = Rect2(72, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uphif"]
+atlas = ExtResource("1_q4jwj")
+region = Rect2(108, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc58i"]
+atlas = ExtResource("1_q4jwj")
+region = Rect2(144, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6f1q"]
+atlas = ExtResource("1_q4jwj")
+region = Rect2(180, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6hj7"]
+atlas = ExtResource("2_bpscu")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8gl8"]
+atlas = ExtResource("2_bpscu")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulwkc"]
+atlas = ExtResource("2_bpscu")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb1c3"]
+atlas = ExtResource("2_bpscu")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u0op"]
+atlas = ExtResource("2_bpscu")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmcyj"]
+atlas = ExtResource("2_bpscu")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_squjh"]
+atlas = ExtResource("2_bpscu")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3prws"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgqf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tvhw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57ptn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uphif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc58i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6f1q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6hj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8gl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulwkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb1c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u0op")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmcyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_squjh")
+}],
+"loop": false,
+"name": &"disappear",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_paos2"]
+radius = 9.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b737"]
+radius = 8.0
+
+[node name="bee_collectable" type="CharacterBody2D"]
+script = ExtResource("1_wiq43")
+
+[node name="bee_collectable" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3prws")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." groups=["bee_collectable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_paos2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_0b737")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

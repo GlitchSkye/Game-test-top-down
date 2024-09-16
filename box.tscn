@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://npmrsqs13vmw"]
+
+[ext_resource type="Texture2D" uid="uid://dmaauwgapabtb" path="res://Idle.png" id="1_64spq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eolx8"]
+size = Vector2(56.5, 3)
+
+[node name="box" type="CharacterBody2D" groups=["obstacle"]]
+collision_layer = 128
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(772, 387)
+scale = Vector2(3, 3)
+texture = ExtResource("1_64spq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(772, 416)
+shape = SubResource("RectangleShape2D_eolx8")
