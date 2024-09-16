@@ -1,40 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwhyh07kbxenr"]
+[gd_scene load_steps=4 format=3 uid="uid://dwhyh07kbxenr"]
 
 [ext_resource type="Script" path="res://sword.gd" id="1_kcs4u"]
-[ext_resource type="Texture2D" uid="uid://dmaauwgapabtb" path="res://Idle.png" id="1_u2hg1"]
+[ext_resource type="Texture2D" uid="uid://cq03t5pxn2630" path="res://sword-1.png" id="2_wovp7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ur8v"]
 radius = 7.0
-height = 44.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_34b0n"]
-atlas = ExtResource("1_u2hg1")
-region = Rect2(2, 0, 24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hitpx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_34b0n")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+height = 29.1642
 
 [node name="sword" type="Area2D"]
 script = ExtResource("1_kcs4u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(58.5859, -1.1822)
+position = Vector2(65, -1)
 rotation = 1.58435
 shape = SubResource("CapsuleShape2D_4ur8v")
 
 [node name="weapon_point" type="Marker2D" parent="."]
 
-[node name="swordSprite" type="AnimatedSprite2D" parent="weapon_point"]
+[node name="Sprite2D" type="Sprite2D" parent="weapon_point"]
 texture_filter = 1
-position = Vector2(59.5859, -1.18221)
-rotation = 1.58435
-scale = Vector2(0.541667, 1.95833)
-sprite_frames = SubResource("SpriteFrames_hitpx")
+position = Vector2(50, -2)
+rotation = 0.81967
+texture = ExtResource("2_wovp7")
