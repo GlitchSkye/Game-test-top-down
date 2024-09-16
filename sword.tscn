@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwhyh07kbxenr"]
 
-[ext_resource type="Script" path="res://sword.gd" id="1_kcs4u"]
+[ext_resource type="Script" path="res://program/Weapons/sword.gd" id="1_kcs4u"]
 [ext_resource type="Texture2D" uid="uid://cq03t5pxn2630" path="res://sword-1.png" id="2_wovp7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ur8v"]
-radius = 7.0
-height = 29.1642
+radius = 11.9582
+height = 71.9663
 
 [node name="sword" type="Area2D"]
 script = ExtResource("1_kcs4u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(65, -1)
+position = Vector2(108, -1)
 rotation = 1.58435
 shape = SubResource("CapsuleShape2D_4ur8v")
 
@@ -19,6 +19,7 @@ shape = SubResource("CapsuleShape2D_4ur8v")
 
 [node name="Sprite2D" type="Sprite2D" parent="weapon_point"]
 texture_filter = 1
-position = Vector2(50, -2)
+position = Vector2(82.8704, -2.50056)
 rotation = 0.81967
+scale = Vector2(2.37918, 2.52296)
 texture = ExtResource("2_wovp7")

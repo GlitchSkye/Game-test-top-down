@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://nmjf7t8r1e2u"]
 
-[ext_resource type="Script" path="res://pause_menu.gd" id="1_vcpht"]
+[ext_resource type="Script" path="res://program/UI/pause_menu.gd" id="1_vcpht"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -32,11 +32,11 @@ layout_mode = 2
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "resume"
+text = "Resume"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "quit"
+text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

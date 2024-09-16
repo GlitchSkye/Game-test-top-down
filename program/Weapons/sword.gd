@@ -1,5 +1,5 @@
 extends Area2D
-class_name sword
+class_name Sword 
 
 
 var mouse_position = Vector2()

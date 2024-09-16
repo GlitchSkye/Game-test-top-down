@@ -38,6 +38,7 @@ position = Vector2(81, 77)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="score" type="Panel" parent="CanvasLayer"]
+texture_filter = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
