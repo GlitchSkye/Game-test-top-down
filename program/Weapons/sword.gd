@@ -1,7 +1,6 @@
 extends Area2D
 class_name Sword 
 
-
 var mouse_position = Vector2()
 @export var rotation_speed: float = 5.0  # Adjust this value to control how fast the sword rotates
 
