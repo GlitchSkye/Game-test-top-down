@@ -219,7 +219,10 @@ shape = SubResource("CapsuleShape2D_v6eb2")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 2)
 
-[node name="sword" parent="." instance=ExtResource("5_ktt4c")]
-position = Vector2(1, 11)
+[node name="weapon" type="Node2D" parent="."]
+
+[node name="sword" parent="weapon" instance=ExtResource("5_ktt4c")]
+position = Vector2(1, 12)
+rotation = 0.0168965
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
