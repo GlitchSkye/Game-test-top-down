@@ -1,54 +1,24 @@
-[gd_scene load_steps=31 format=3 uid="uid://k3ev0lxxvrob"]
+[gd_scene load_steps=22 format=3 uid="uid://k3ev0lxxvrob"]
 
-[ext_resource type="Texture2D" uid="uid://b46wfhwhcy83t" path="res://player/Jump (32x32).png" id="1_3voty"]
 [ext_resource type="Script" path="res://program/Player/playercharacterbody2d.gd" id="1_ywxm0"]
-[ext_resource type="Texture2D" uid="uid://bl0pdnuv1wka0" path="res://player/Idle (32x32).png" id="2_fc578"]
 [ext_resource type="Texture2D" uid="uid://b1asfiol03rc1" path="res://player/player-run-sprite.png" id="4_71oal"]
 [ext_resource type="PackedScene" uid="uid://dwhyh07kbxenr" path="res://sword.tscn" id="5_ktt4c"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_diva8"]
-atlas = ExtResource("2_fc578")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivunn"]
+atlas = ExtResource("4_71oal")
+region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n0hde"]
-atlas = ExtResource("2_fc578")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fskfn"]
+atlas = ExtResource("4_71oal")
+region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gb3ri"]
-atlas = ExtResource("2_fc578")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2mnl"]
+atlas = ExtResource("4_71oal")
+region = Rect2(384, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1meva"]
-atlas = ExtResource("2_fc578")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v7nsq"]
-atlas = ExtResource("2_fc578")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_arpy8"]
-atlas = ExtResource("2_fc578")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujcpj"]
-atlas = ExtResource("2_fc578")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mpjkd"]
-atlas = ExtResource("2_fc578")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lbr64"]
-atlas = ExtResource("2_fc578")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ynrqw"]
-atlas = ExtResource("2_fc578")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dtl8v"]
-atlas = ExtResource("2_fc578")
-region = Rect2(320, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5weg3"]
+atlas = ExtResource("4_71oal")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gt0eb"]
 atlas = ExtResource("4_71oal")
@@ -98,48 +68,24 @@ region = Rect2(640, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_diva8")
+"texture": SubResource("AtlasTexture_ivunn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n0hde")
+"texture": SubResource("AtlasTexture_fskfn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gb3ri")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1meva")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v7nsq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_arpy8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ujcpj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mpjkd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lbr64")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ynrqw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dtl8v")
+"texture": SubResource("AtlasTexture_y2mnl")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"dash",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_3voty")
+"texture": SubResource("AtlasTexture_5weg3")
 }],
 "loop": true,
-"name": &"jump",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -196,8 +142,9 @@ script = ExtResource("1_ywxm0")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tbx6f")
-animation = &"run"
+animation = &"dash"
 autoplay = "idle"
+frame_progress = 0.717666
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
