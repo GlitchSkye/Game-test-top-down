@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djctnykamjln4"
-path="res://.godot/imported/Desappearing (96x96).png-788919baf5ed00a647e32987e8375238.ctex"
+uid="uid://cwjr70r1hgba7"
+path="res://.godot/imported/Idle (36x34).png-c4bd57d34d6fec630cd1bd5440cea9e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bumble_bee/Desappearing (96x96).png"
-dest_files=["res://.godot/imported/Desappearing (96x96).png-788919baf5ed00a647e32987e8375238.ctex"]
+source_file="res://enemies/Idle (36x34).png"
+dest_files=["res://.godot/imported/Idle (36x34).png-c4bd57d34d6fec630cd1bd5440cea9e7.ctex"]
 
 [params]
 
