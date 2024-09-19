@@ -6,6 +6,10 @@ const DASH_SPEED = 1200.0
 const DASH_DURATION = 0.5
 const DASH_COOLDOWN = 1.0
 const DECELERATION = 10.0
+const BULLET_TIME_COOLDOWN = 15.0
+const BULLET_TIME_DURATION = 3.0  # Duration for bullet time
+const BULLET_TIME_SCALE = 0.2  # 20% of normal speed for bullet time
+const NORMAL_TIME_SCALE = 1.0  # Normal time scale
 
 # Animation states as constants to avoid typos
 const IDLE_ANIMATION = "idle"
@@ -18,6 +22,8 @@ var dash_time = 0.0
 var dash_cooldown_time = 0.0  # Initialize cooldown time to 0
 var dash_direction = Vector2.ZERO  # Store the direction of the dash
 var has_dashed = false  # Flag to track if the dash has been used
+var is_bullet_time = false
+var bullet_time_timer = 0.0  # Timer for how long bullet time lasts
 
 var mouse_position = Vector2()
 
@@ -27,6 +33,8 @@ var mouse_position = Vector2()
 @onready var sword: Area2D = $"../weapon/sword"
 
 func _physics_process(delta: float) -> void:
+	update_bullet_time(delta)
+	
 	# Handle dash cooldown
 	if dash_cooldown_time > 0:
 		dash_cooldown_time -= delta
@@ -54,8 +62,12 @@ func handle_movement(delta: float) -> void:
 	
 	# Handle normal movement when not dashing
 	if direction != Vector2.ZERO:
-		velocity = direction.normalized() * SPEED
-		set_animation(RUN_ANIMATION)
+		if not is_bullet_time:
+			velocity = direction.normalized() * SPEED
+			set_animation(RUN_ANIMATION)
+		elif  is_bullet_time:
+			velocity = direction.normalized() * (SPEED / 0.2) #TODO: same player speed for bullet time
+			set_animation(RUN_ANIMATION)
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 		velocity.y = move_toward(velocity.y, 0, DECELERATION)
@@ -82,6 +94,33 @@ func update_dash(delta: float) -> void:
 	else:
 		velocity = dash_direction * DASH_SPEED  # Maintain the locked dash direction
 
+func update_bullet_time(delta: float) -> void:
+	# Check if the player wants to activate bullet time
+	if Input.is_action_just_pressed("ui_accept"):
+		if not is_bullet_time:
+			# Activate bullet time
+			print("Bullet time activated")  # For debugging
+			Engine.time_scale = BULLET_TIME_SCALE
+			is_bullet_time = true
+			bullet_time_timer = BULLET_TIME_DURATION  # Reset timer
+		else:
+			# Deactivate bullet time early
+			print("Bullet time deactivated early")  # For debugging
+			Engine.time_scale = NORMAL_TIME_SCALE
+			is_bullet_time = false
+
+	# If bullet time is active, count down the timer
+	if is_bullet_time:
+		bullet_time_timer -= delta
+		print("Bullet time timer:", bullet_time_timer)  # For debugging
+
+		# Check if the timer has expired
+		if bullet_time_timer <= 0:
+			# Deactivate bullet time automatically
+			print("Bullet time ended")  # For debugging
+			Engine.time_scale = NORMAL_TIME_SCALE
+			is_bullet_time = false
+			
 # Helper function to set animations
 func set_animation(animation_name: String) -> void:
 	if player.animation != animation_name:
