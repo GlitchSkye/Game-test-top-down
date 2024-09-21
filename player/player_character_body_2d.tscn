@@ -201,8 +201,6 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tbx6f")
 animation = &"dash"
 autoplay = "idle"
-frame = 6
-frame_progress = 0.812276
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 

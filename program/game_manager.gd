@@ -27,7 +27,7 @@ func pauseMenu():
 func add_points(addition: int):
 	score += addition
 	print(score)
-	points.text = str("Bees: ", score)
+	points.text = str("Souls: ", score)
 
 func spawn_random(amount: int): #for spawning random characterbody2D
 	pass
