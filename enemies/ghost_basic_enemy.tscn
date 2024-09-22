@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://8euh2rgfiu7l"]
 
 [ext_resource type="Script" path="res://program/NPC/bee_collectable.gd" id="1_wiq43"]
-[ext_resource type="Texture2D" uid="uid://br4tq6eiumkay" path="res://basic-ghost.png" id="2_0f7th"]
+[ext_resource type="Texture2D" uid="uid://br4tq6eiumkay" path="res://enemies/basic-ghost.png" id="2_0f7th"]
 [ext_resource type="Texture2D" uid="uid://djctnykamjln4" path="res://enemies/Desappearing (96x96).png" id="2_bpscu"]
 [ext_resource type="Script" path="res://enemies/state_manager.gd" id="4_pfucl"]
 [ext_resource type="Script" path="res://program/States/Idle.gd" id="5_vmvta"]

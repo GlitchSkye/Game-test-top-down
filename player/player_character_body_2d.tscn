@@ -203,6 +203,7 @@ autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 collision_layer = 2
+collision_mask = 129
 
 [node name="playerCollision" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2, 4)
