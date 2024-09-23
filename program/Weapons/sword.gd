@@ -27,3 +27,13 @@ func _process(delta):
 	
 	# Set the sword's rotation directly to the target angle
 	rotation = target_angle
+	
+	if Input.is_action_just_pressed("shoot_action"):
+		shoot()
+
+func shoot():
+	const  BULLET = preload("res://player/bullet.tscn")
+	var new_bullet = BULLET.instantiate()
+	new_bullet.global_position = %shoot_point.global_position
+	new_bullet.global_rotation = %shoot_point.global_rotation
+	%shoot_point.add_child(new_bullet)

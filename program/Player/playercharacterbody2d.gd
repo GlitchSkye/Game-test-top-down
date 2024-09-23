@@ -28,7 +28,7 @@ var bullet_time_timer = 0.0  # Timer for how long bullet time lasts
 var mouse_position = Vector2()
 
 @onready var player: AnimatedSprite2D = $player
-@onready var bee_collectable: CharacterBody2D = $bee_collectable
+@onready var basic_ghost_enemy: CharacterBody2D = $ghost_basic_enemy
 @onready var game_manager: Node = %GameManager
 @onready var sword: Area2D = $"../weapon/sword"
 
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	if is_dashing:
 		update_dash(delta)
 	else:
-		handle_movement(delta)
+		handle_inputs(delta)
 	
 	# Apply velocity to the character
 	move_and_slide()  # No arguments needed, `velocity` is already part of the character
@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	player.flip_h = velocity.x < 0
 
 # Function to handle basic movement
-func handle_movement(delta: float) -> void:
+func handle_inputs(delta: float) -> void:
 	var direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
 
 	# Start dash if the dash input is pressed
@@ -127,6 +127,6 @@ func set_animation(animation_name: String) -> void:
 		player.animation = animation_name
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("bee_collectable"):
-		print("collided with bee")
+	if area.is_in_group("basic_ghost_enemy"):
+		print("collided with ghost")
 		game_manager.add_points(1)

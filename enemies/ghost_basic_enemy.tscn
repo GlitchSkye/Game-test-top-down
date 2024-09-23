@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://8euh2rgfiu7l"]
 
-[ext_resource type="Script" path="res://program/NPC/bee_collectable.gd" id="1_wiq43"]
+[ext_resource type="Script" path="res://program/NPC/ghost_basic_enemy.gd" id="1_wiq43"]
 [ext_resource type="Texture2D" uid="uid://br4tq6eiumkay" path="res://enemies/basic-ghost.png" id="2_0f7th"]
 [ext_resource type="Texture2D" uid="uid://djctnykamjln4" path="res://enemies/Desappearing (96x96).png" id="2_bpscu"]
 [ext_resource type="Script" path="res://enemies/state_manager.gd" id="4_pfucl"]
@@ -80,7 +80,9 @@ height = 48.0
 radius = 17.0
 height = 48.0
 
-[node name="ghost_basic_enemy" type="CharacterBody2D" groups=["bee_collectable"]]
+[node name="ghost_basic_enemy" type="CharacterBody2D" groups=["basic_ghost_enemy"]]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_wiq43")
 
 [node name="ghost_basic_enemy" type="AnimatedSprite2D" parent="."]
@@ -88,7 +90,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3prws")
 autoplay = "default"
 
-[node name="Area2D" type="Area2D" parent="." groups=["bee_collectable"]]
+[node name="Area2D" type="Area2D" parent="." groups=["basic_ghost_enemy"]]
 collision_layer = 4
 collision_mask = 2
 
