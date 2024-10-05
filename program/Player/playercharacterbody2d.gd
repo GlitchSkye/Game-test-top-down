@@ -32,6 +32,8 @@ var mouse_position = Vector2()
 @onready var game_manager: Node = %GameManager
 @onready var sword: Area2D = $"../weapon/sword"
 
+var health = 3
+
 func _physics_process(delta: float) -> void:
 	update_bullet_time(delta)
 	
@@ -128,5 +130,5 @@ func set_animation(animation_name: String) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("basic_ghost_enemy"):
-		print("collided with ghost")
-		game_manager.add_points(1)
+		health -= 1
+		print("player health", health)
